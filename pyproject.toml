@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.distutils.bdist_wheel]
+python-tag = "py311"
+
+[project]
+version = "0.0.1"
+name = "table-annotator"
+description = "an annotation tool for annotating table layout on images"
+license = {file = "LICENSE"}
+
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3 :: 11",
+]
+dependencies = [
+    "PyQt5"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black[d]",
+    "mypy"
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.mypy]
+ignore_missing_imports = true
+check_untyped_defs = true
+
+[tool.pytest.ini_options]
+addopts = "-vv -rf"
+console_output_style = "count"
+python_files = "test_*.py"
+testpaths = "test"
