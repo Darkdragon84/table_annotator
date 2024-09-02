@@ -43,7 +43,7 @@ class ImageAnnotator(QWidget):
 
         # Image display area
         self.image_label = QLabel("Select an image to annotate")
-        self.image_label.setAlignment(Qt.AlignCenter)
+        self.image_label.setAlignment(Qt.AlignCenter)  # type: ignore[attr-defined]
         self.image_label.setFixedSize(600, 600)
         self.main_layout.addWidget(self.image_label, 3)
 
@@ -70,7 +70,7 @@ class ImageAnnotator(QWidget):
         image_file_path = os.path.join(self.current_folder_path, item.text())
         pixmap = QPixmap(image_file_path)
         self.image_label.setPixmap(
-            pixmap.scaled(self.image_label.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation)
+            pixmap.scaled(self.image_label.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation)  # type: ignore[attr-defined]
         )
 
 
